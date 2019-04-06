@@ -18,7 +18,7 @@ public class SettingActivity extends Activity {
         super.onCreate(savedInstanceStance);
 
         activitySettingBinding = DataBindingUtil.setContentView(this, R.layout.activity_setting);
-        settingViewModel = new SettingViewModel(this);
+        settingViewModel = new SettingViewModel(this, activitySettingBinding);
         activitySettingBinding.setViewModel(settingViewModel);
 
         ToolbarViewModel toolbarViewModel = new ToolbarViewModel(this)

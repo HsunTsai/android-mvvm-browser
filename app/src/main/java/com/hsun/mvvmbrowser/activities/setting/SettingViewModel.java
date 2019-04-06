@@ -3,11 +3,14 @@ package com.hsun.mvvmbrowser.activities.setting;
 import android.app.Activity;
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;
+import android.util.Log;
 import android.view.View;
+import android.widget.Switch;
 
 import com.hsun.mvvmbrowser.Config;
 import com.hsun.mvvmbrowser.R;
 import com.hsun.mvvmbrowser.components.DialogHelper;
+import com.hsun.mvvmbrowser.databinding.ActivitySettingBinding;
 
 public class SettingViewModel extends ViewModel {
 
@@ -15,16 +18,18 @@ public class SettingViewModel extends ViewModel {
     public Boolean isChange = false;
     public final ObservableField<String> homeURL = new ObservableField<>(Config.HOME_URL);
 
-    SettingViewModel(Activity activity) {
+    SettingViewModel(Activity activity, ActivitySettingBinding activitySettingBinding) {
         this.activity = activity;
+        activitySettingBinding.switchAdBlock.setChecked(Config.sharedPreferences.getBoolean(Config.SP_ENABLED_AD_BLOCK, false));
+        Log.e("isCheck!!!",String.valueOf(Config.sharedPreferences.getBoolean(Config.SP_ENABLED_AD_BLOCK, false)));
     }
 
     boolean getChangeState() {
         return isChange;
     }
 
-    public void onSwitchChangeADBlock(Boolean isCheck) {
-        Config.sharedPreferences.edit().putBoolean(Config.SP_ENABLED_AD_BLOCK, isCheck).apply();
+    public void onSwitchChangeADBlock(boolean isChecked) {
+        Config.sharedPreferences.edit().putBoolean(Config.SP_ENABLED_AD_BLOCK, isChecked).apply();
         isChange = true;
     }
 
