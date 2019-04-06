@@ -11,8 +11,13 @@
     <string name="common_cancel">Cancel</string>
     <string name="common_confirm">Confirm</string>
     <string name="common_setting">Setting</string>
+    <string name="common_processing">Processing...</string>
+
+    <string name="alert_setting_finish">Setting finish</string>
 
     <string name="setting_home">Home page</string>
     <string name="setting_enable_ad_block">Enable AD Block</string>
     <string name="setting_enable_float">Enable Float Window</string>
+
+    <string name="setting_web_home">Set to home page</string>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="web_more_settings_label">
+        <item>@string/setting_web_home</item>
+        <item>default</item>
+    </string-array>
+    <string-array name="web_more_settings_value">
+        <item>set_home_page</item>
+        <item>default</item>
+    </string-array>
+</resources>

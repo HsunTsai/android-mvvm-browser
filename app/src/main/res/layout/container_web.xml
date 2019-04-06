@@ -63,6 +63,7 @@
                     android:background="@android:color/transparent"
                     android:ellipsize="end"
                     android:imeOptions="actionSearch"
+                    android:inputType="textUri"
                     android:selectAllOnFocus="true"
                     android:singleLine="true" />
 
@@ -186,7 +187,33 @@
                     android:paddingBottom="10dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/svg_jump"
-                    android:tint="@drawable/bt_icon_selector" />
+                    android:tint="@drawable/bt_icon_selector"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_weight="1">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:background="@android:color/transparent"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="@dimen/padding"
+                        android:paddingBottom="10dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/svg_more_horiz"
+                        android:tint="@drawable/bt_icon_selector" />
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:background="?attr/selectableItemBackground" />
+
+                </RelativeLayout>
 
             </LinearLayout>
 
