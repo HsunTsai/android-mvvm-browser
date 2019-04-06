@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#0087DC</color>
+    <color name="icon_gray">#999</color>
+    <color name="icon_hover">#666</color>
+    <color name="bg_gray">#EEE</color>
+    <color name="divider_color">#CCC</color>
+</resources>

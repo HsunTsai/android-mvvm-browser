@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hsun.jumpbrowser.activities.setting.SettingViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divide_height"
+                android:orientation="vertical"
+                android:showDividers="middle|end">
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/double_padding"
+                    android:paddingStart="@dimen/double_padding"
+                    android:paddingEnd="@dimen/double_padding"
+                    android:text="@string/setting_enable_ad_block" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/double_padding"
+                    android:paddingStart="@dimen/double_padding"
+                    android:paddingEnd="@dimen/double_padding"
+                    android:text="@string/setting_enable_float" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

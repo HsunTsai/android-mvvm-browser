@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.hsun.jumpbrowser.activities.main.MainActivityViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:visibility="gone">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divide_height"
+            android:orientation="vertical"
+            android:showDividers="end">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/double_padding"
+                android:background="@drawable/bg_corner_gray"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/medium_icon"
+                    android:layout_height="@dimen/medium_icon"
+                    android:src="@drawable/svg_earth"
+                    android:tint="@color/icon_gray" />
+
+                <EditText
+                    android:id="@+id/ed_search_url"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/double_padding"
+                    android:layout_marginEnd="@dimen/double_padding"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ellipsize="end"
+                    android:imeOptions="actionSearch"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:layout_width="@dimen/medium_icon"
+                    android:layout_height="@dimen/medium_icon"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{(v)->viewModel.search(v)}"
+                    android:src="@drawable/svg_search"
+                    android:tint="@color/icon_gray" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:visibility="@{viewModel.webProgress==100?View.GONE:View.VISIBLE}">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="@{viewModel.webProgress}" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <org.adblockplus.libadblockplus.android.webview.AdblockWebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divide_height"
+            android:orientation="vertical"
+            android:showDividers="beginning">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/imgbt_web_back"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="@{viewModel.webCanGoBack}"
+                    android:onClick="@{(v)->viewModel.webBack(v)}"
+                    android:padding="@dimen/padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/svg_arrow_left"
+                    android:tint="@drawable/bt_icon_selector" />
+
+                <ImageButton
+                    android:id="@+id/imgbt_web_forward"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="@{viewModel.webCanGoForward}"
+                    android:onClick="@{(v)->viewModel.webForward(v)}"
+                    android:padding="@dimen/padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/svg_arrow_right"
+                    android:tint="@drawable/bt_icon_selector" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{(v)->viewModel.webHome(v)}"
+                    android:paddingStart="@dimen/padding"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="@dimen/padding"
+                    android:paddingBottom="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/svg_home"
+                    android:tint="@drawable/bt_icon_selector" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{(v)->viewModel.webSetting(v)}"
+                    android:paddingStart="@dimen/padding"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="@dimen/padding"
+                    android:paddingBottom="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/svg_setting"
+                    android:tint="@drawable/bt_icon_selector" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{(v)->viewModel.webJump(v)}"
+                    android:paddingStart="@dimen/padding"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="@dimen/padding"
+                    android:paddingBottom="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/svg_jump"
+                    android:tint="@drawable/bt_icon_selector" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
