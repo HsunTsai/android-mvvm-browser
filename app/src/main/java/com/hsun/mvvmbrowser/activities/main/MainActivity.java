@@ -1,4 +1,4 @@
-package com.hsun.jumpbrowser.activities.main;
+package com.hsun.mvvmbrowser.activities.main;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -12,9 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.hsun.jumpbrowser.Config;
-import com.hsun.jumpbrowser.R;
-import com.hsun.jumpbrowser.databinding.ActivityMainBinding;
+import com.hsun.mvvmbrowser.Config;
+import com.hsun.mvvmbrowser.R;
+import com.hsun.mvvmbrowser.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

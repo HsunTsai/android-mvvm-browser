@@ -1,11 +1,11 @@
-package com.hsun.jumpbrowser.activities.setting;
+package com.hsun.mvvmbrowser.activities.setting;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
-import com.hsun.jumpbrowser.R;
-import com.hsun.jumpbrowser.databinding.ActivitySettingBinding;
+import com.hsun.mvvmbrowser.R;
+import com.hsun.mvvmbrowser.databinding.ActivitySettingBinding;
 
 public class SettingActivity extends Activity {
 

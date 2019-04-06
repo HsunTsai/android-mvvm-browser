@@ -1,4 +1,4 @@
-package com.hsun.jumpbrowser;
+package com.hsun.mvvmbrowser;
 
 import org.junit.Test;
 

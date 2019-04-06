@@ -1,4 +1,4 @@
-package com.hsun.jumpbrowser.utils;
+package com.hsun.mvvmbrowser.utils;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

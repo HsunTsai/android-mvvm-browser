@@ -1,4 +1,4 @@
-package com.hsun.jumpbrowser.activities.setting;
+package com.hsun.mvvmbrowser.activities.setting;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModel;

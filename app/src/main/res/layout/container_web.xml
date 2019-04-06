@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.hsun.jumpbrowser.activities.main.MainActivityViewModel" />
+            type="com.hsun.mvvmbrowser.activities.main.MainActivityViewModel" />
     </data>
 
     <LinearLayout

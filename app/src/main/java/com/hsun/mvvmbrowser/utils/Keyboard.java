@@ -1,4 +1,4 @@
-package com.hsun.jumpbrowser.utils;
+package com.hsun.mvvmbrowser.utils;
 
 import android.app.Activity;
 import android.content.Context;

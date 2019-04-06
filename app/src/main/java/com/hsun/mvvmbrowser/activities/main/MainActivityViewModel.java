@@ -1,10 +1,9 @@
-package com.hsun.jumpbrowser.activities.main;
+package com.hsun.mvvmbrowser.activities.main;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,11 +11,11 @@ import android.view.inputmethod.EditorInfo;
 import android.webkit.URLUtil;
 import android.widget.TextView;
 
-import com.hsun.jumpbrowser.Config;
-import com.hsun.jumpbrowser.activities.setting.SettingActivity;
-import com.hsun.jumpbrowser.utils.Keyboard;
-import com.hsun.jumpbrowser.utils.WebViewSetting;
-import com.hsun.jumpbrowser.databinding.ActivityMainBinding;
+import com.hsun.mvvmbrowser.Config;
+import com.hsun.mvvmbrowser.activities.setting.SettingActivity;
+import com.hsun.mvvmbrowser.utils.Keyboard;
+import com.hsun.mvvmbrowser.utils.WebViewSetting;
+import com.hsun.mvvmbrowser.databinding.ActivityMainBinding;
 
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView;
 

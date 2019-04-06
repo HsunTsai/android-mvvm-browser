@@ -1,4 +1,4 @@
-package com.hsun.jumpbrowser;
+package com.hsun.mvvmbrowser;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
