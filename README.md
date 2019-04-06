@@ -1,8 +1,8 @@
 # android-mvvm-browser
 # An Android Native Browser 
 
-![](http://www.hsunapi.ga/images/mvvmBrowser1.png)
-![](http://www.hsunapi.ga/images/mvvmBrowser2.png)
+![](http://www.hsunapi.ga/images/mvvmBrowser1.png | width=100)
+![](http://www.hsunapi.ga/images/mvvmBrowser2.png | width=100)
 
 # Pattern
 
@@ -10,5 +10,5 @@ Created by MVVM pattern
 
 # Dependencies
 
-ADBlock(https://github.com/adblockplus/libadblockplus-android)
+[ADBlock](https://github.com/adblockplus/libadblockplus-android)
 implementation 'org.adblockplus:adblock-android-webview:3.0'
