@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
 
     <data>
 
         <variable
             name="viewModel"
             type="com.hsun.mvvmbrowser.activities.setting.SettingViewModel" />
+
+        <variable
+            name="toolbarViewModel"
+            type="com.hsun.mvvmbrowser.components.ToolbarViewModel" />
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <include
+            android:id="@+id/component_toolbar"
+            layout="@layout/component_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:viewModel="@{toolbarViewModel}" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -25,20 +37,41 @@
                 android:orientation="vertical"
                 android:showDividers="middle|end">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{(v)->viewModel.changeHomePage(v)}"
+                    android:padding="@dimen/double_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/setting_home"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/title_font" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding"
+                        android:text="@{viewModel.homeURL}"
+                        android:textColor="@color/content_color" />
+
+                </LinearLayout>
+
                 <Switch
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/double_padding"
-                    android:paddingStart="@dimen/double_padding"
-                    android:paddingEnd="@dimen/double_padding"
                     android:text="@string/setting_enable_ad_block" />
 
                 <Switch
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/double_padding"
-                    android:paddingStart="@dimen/double_padding"
-                    android:paddingEnd="@dimen/double_padding"
+                    android:onCheckedChanged="@{(switch, checked) -> viewModel.onSwitchChangeADBlock(checked)}"
                     android:text="@string/setting_enable_float" />
 
             </LinearLayout>

@@ -2,6 +2,8 @@ package com.hsun.mvvmbrowser.utils;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -35,6 +37,11 @@ public class WebViewSetting {
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
                 // Redirect to deprecated method, so you can use it in all SDK versions
                 onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed(); // Ignore SSL certificate errors
             }
 
             @Override

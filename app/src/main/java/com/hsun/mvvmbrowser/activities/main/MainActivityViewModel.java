@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.hsun.mvvmbrowser.Config;
 import com.hsun.mvvmbrowser.activities.setting.SettingActivity;
-import com.hsun.mvvmbrowser.utils.Keyboard;
+import com.hsun.mvvmbrowser.utils.KeyboardUtil;
 import com.hsun.mvvmbrowser.utils.WebViewSetting;
 import com.hsun.mvvmbrowser.databinding.ActivityMainBinding;
 
@@ -32,7 +32,7 @@ public class MainActivityViewModel extends ViewModel {
         this.activity = activity;
         this.activityMainBinding = activityMainBinding;
 
-        activityMainBinding.container.edSearchUrl.setText(Config.HOME_PAGE);
+        activityMainBinding.container.edSearchUrl.setText(Config.HOME_URL);
 
         webView = activityMainBinding.container.webView;
         setWebSetting();
@@ -60,7 +60,7 @@ public class MainActivityViewModel extends ViewModel {
                         webCanGoForward.set(canGoForward);
                     }
                 });
-        webView.loadUrl(Config.HOME_PAGE);
+        webView.loadUrl(Config.HOME_URL);
 
         activityMainBinding.container.edSearchUrl.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -76,7 +76,7 @@ public class MainActivityViewModel extends ViewModel {
 
     public void setWebSetting() {
         if (null != Config.sharedPreferences) {
-            webView.setAdblockEnabled(Config.sharedPreferences.getBoolean(Config.WEB_VIEW_ENABLED_AD_BLOCK, true));
+            webView.setAdblockEnabled(Config.sharedPreferences.getBoolean(Config.SP_ENABLED_AD_BLOCK, true));
         }
     }
 
@@ -87,7 +87,7 @@ public class MainActivityViewModel extends ViewModel {
      * @param view
      */
     public void search(View view) {
-        Keyboard.hide(activity);
+        KeyboardUtil.hide(activity);
         activityMainBinding.container.edSearchUrl.clearFocus();
         String searchText = activityMainBinding.container.edSearchUrl.getText().toString();
         if (URLUtil.isValidUrl(searchText)) {
@@ -99,6 +99,18 @@ public class MainActivityViewModel extends ViewModel {
                 webView.loadUrl("https://www.google.com/search?q=" + searchText);
             }
         }
+    }
+
+    /**
+     * onClick
+     * 搜尋
+     *
+     * @param view
+     */
+    public void refresh(View view) {
+        KeyboardUtil.hide(activity);
+        activityMainBinding.container.edSearchUrl.clearFocus();
+        webView.reload();
     }
 
     /**
@@ -128,7 +140,7 @@ public class MainActivityViewModel extends ViewModel {
      * @param view
      */
     public void webHome(View view) {
-        webView.goForward();
+        webView.loadUrl(Config.HOME_URL);
     }
 
     /**

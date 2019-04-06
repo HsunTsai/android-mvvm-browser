@@ -69,9 +69,18 @@
                 <ImageButton
                     android:layout_width="@dimen/medium_icon"
                     android:layout_height="@dimen/medium_icon"
+                    android:layout_marginEnd="@dimen/padding"
                     android:background="?attr/selectableItemBackground"
                     android:onClick="@{(v)->viewModel.search(v)}"
                     android:src="@drawable/svg_search"
+                    android:tint="@color/icon_gray" />
+
+                <ImageButton
+                    android:layout_width="@dimen/medium_icon"
+                    android:layout_height="@dimen/medium_icon"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{(v)->viewModel.refresh(v)}"
+                    android:src="@drawable/svg_refresh"
                     android:tint="@color/icon_gray" />
             </LinearLayout>
 

@@ -25,6 +25,7 @@
 
         <activity
             android:name="com.hsun.mvvmbrowser.activities.setting.SettingActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:configChanges="keyboardHidden|orientation|screenSize" />
 
     </application>

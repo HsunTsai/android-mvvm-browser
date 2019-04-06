@@ -8,8 +8,10 @@
 
     <dimen name="small_padding">4dp</dimen>
     <dimen name="padding">6dp</dimen>
-    <dimen name="double_padding">8dp</dimen>
+    <dimen name="double_padding">12dp</dimen>
     <dimen name="small_icon">16dp</dimen>
     <dimen name="medium_icon">24dp</dimen>
     <dimen name="large_icon">46dp</dimen>
+
+    <dimen name="title_font">16sp</dimen>
 </resources>
